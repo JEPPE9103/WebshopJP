@@ -23,7 +23,7 @@ public class WebshopJP {
                     "AND p.Size = '38' " +
                     "AND p.Brand = 'Levis';";
             ResultSet rs1 = stmt.executeQuery(query1);
-            System.out.println("Kunder som har köpt svarta byxor i storlek 38 av märket SweetPants:");
+            System.out.println("Kunder som har köpt svarta byxor i storlek 38 av märket Levis:");
             while (rs1.next()) {
                 System.out.println(rs1.getString("Förnamn") + " " + rs1.getString("Efternamn"));
             }
