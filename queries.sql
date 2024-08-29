@@ -6,7 +6,7 @@ JOIN OrderDetails od ON o.OrderID = od.OrderID
 JOIN Products p ON od.ProductID = p.ProductID
 WHERE p.Color = 'Svart'
 AND p.Size = '38'
-AND p.Brand = 'Levis';
+AND p.Brand = 'Sweetpants';
 
 -- 2. Lista antalet produkter per kategori.
 SELECT c.CategoryName AS Kategori, COUNT(p.ProductID) AS AntalProdukter
