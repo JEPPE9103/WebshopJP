@@ -1,7 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class WebshopJP {
@@ -23,10 +23,11 @@ public class WebshopJP {
                     "WHERE p.Color = 'Svart' " +
                     "AND p.Size = '38' " +
                     "AND p.Brand = 'Levis';";
-            ResultSet rs1 = stmt.executeQuery(query1);
-            System.out.println("Kunder som har köpt svarta byxor i storlek 38 av märket Levis:");
-            while (rs1.next()) {
-                System.out.println(rs1.getString("Förnamn") + " " + rs1.getString("Efternamn"));
+            try (ResultSet rs1 = stmt.executeQuery(query1)) {
+                System.out.println("Kunder som har köpt svarta byxor i storlek 38 av märket Levis:");
+                while (rs1.next()) {
+                    System.out.println(rs1.getString("Förnamn") + " " + rs1.getString("Efternamn"));
+                }
             }
 
             // Fråga 2
@@ -35,10 +36,11 @@ public class WebshopJP {
                     "JOIN Categories c ON pc.CategoryID = c.CategoryID " +
                     "JOIN Products p ON pc.ProductID = p.ProductID " +
                     "GROUP BY c.CategoryName;";
-            ResultSet rs2 = stmt.executeQuery(query2);
-            System.out.println("\nAntal produkter per kategori:");
-            while (rs2.next()) {
-                System.out.println(rs2.getString("Kategori") + ": " + rs2.getInt("AntalProdukter"));
+            try (ResultSet rs2 = stmt.executeQuery(query2)) {
+                System.out.println("\nAntal produkter per kategori:");
+                while (rs2.next()) {
+                    System.out.println(rs2.getString("Kategori") + ": " + rs2.getInt("AntalProdukter"));
+                }
             }
 
             // Fråga 3
@@ -48,10 +50,11 @@ public class WebshopJP {
                     "JOIN OrderDetails od ON o.OrderID = od.OrderID " +
                     "JOIN Products p ON od.ProductID = p.ProductID " +
                     "GROUP BY c.CustomerID;";
-            ResultSet rs3 = stmt.executeQuery(query3);
-            System.out.println("\nTotalt handlat per kund:");
-            while (rs3.next()) {
-                System.out.println(rs3.getString("Förnamn") + " " + rs3.getString("Efternamn") + ": " + rs3.getDouble("TotaltHandlat"));
+            try (ResultSet rs3 = stmt.executeQuery(query3)) {
+                System.out.println("\nTotalt handlat per kund:");
+                while (rs3.next()) {
+                    System.out.println(rs3.getString("Förnamn") + " " + rs3.getString("Efternamn") + ": " + rs3.getDouble("TotaltHandlat"));
+                }
             }
 
             // Fråga 4
@@ -62,10 +65,11 @@ public class WebshopJP {
                     "JOIN Products p ON od.ProductID = p.ProductID " +
                     "GROUP BY c.City " +
                     "HAVING SUM(p.Price * od.Quantity) > 1000;";
-            ResultSet rs4 = stmt.executeQuery(query4);
-            System.out.println("\nTotalt beställningsvärde per ort där värdet är större än 1000 kr:");
-            while (rs4.next()) {
-                System.out.println(rs4.getString("Ort") + ": " + rs4.getDouble("TotaltBeställningsvärde"));
+            try (ResultSet rs4 = stmt.executeQuery(query4)) {
+                System.out.println("\nTotalt beställningsvärde per ort där värdet är större än 1000 kr:");
+                while (rs4.next()) {
+                    System.out.println(rs4.getString("Ort") + ": " + rs4.getDouble("TotaltBeställningsvärde"));
+                }
             }
 
             // Fråga 5
@@ -75,10 +79,11 @@ public class WebshopJP {
                     "GROUP BY p.ProductID " +
                     "ORDER BY TotaltSålda DESC " +
                     "LIMIT 5;";
-            ResultSet rs5 = stmt.executeQuery(query5);
-            System.out.println("\nTopp-5 mest sålda produkter:");
-            while (rs5.next()) {
-                System.out.println(rs5.getString("Produktnamn") + ": " + rs5.getInt("TotaltSålda"));
+            try (ResultSet rs5 = stmt.executeQuery(query5)) {
+                System.out.println("\nTopp-5 mest sålda produkter:");
+                while (rs5.next()) {
+                    System.out.println(rs5.getString("Produktnamn") + ": " + rs5.getInt("TotaltSålda"));
+                }
             }
 
             // Fråga 6
@@ -89,14 +94,18 @@ public class WebshopJP {
                     "GROUP BY Månad " +
                     "ORDER BY TotalaFörsäljningen DESC " +
                     "LIMIT 1;";
-            ResultSet rs6 = stmt.executeQuery(query6);
-            System.out.println("\nMånad med största försäljningen:");
-            while (rs6.next()) {
-                System.out.println(rs6.getString("Månad") + ": " + rs6.getDouble("TotalaFörsäljningen"));
+            try (ResultSet rs6 = stmt.executeQuery(query6)) {
+                System.out.println("\nMånad med största försäljningen:");
+                while (rs6.next()) {
+                    System.out.println(rs6.getString("Månad") + ": " + rs6.getDouble("TotalaFörsäljningen"));
+                }
             }
 
+        } catch (SQLException e) {
+            System.err.println("Ett SQL-fel uppstod: " + e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+
