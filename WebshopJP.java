@@ -22,7 +22,7 @@ public class WebshopJP {
                     "JOIN Products p ON od.ProductID = p.ProductID " +
                     "WHERE p.Color = 'Svart' " +
                     "AND p.Size = '38' " +
-                    "AND p.Brand = 'Levis';";
+                    "AND p.Brand = 'Sweetpants';";
             try (ResultSet rs1 = stmt.executeQuery(query1)) {
                 System.out.println("Kunder som har köpt svarta byxor i storlek 38 av märket Sweetpants:");
                 while (rs1.next()) {
