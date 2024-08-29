@@ -1,4 +1,3 @@
-
 -- Ta bort databas om den finns
 DROP DATABASE IF EXISTS WebshopJP;
 
@@ -54,7 +53,7 @@ CREATE TABLE ProductCategories (
     FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
 );
 
--- Fyll tabeller med exempeldata
+
 INSERT INTO Customers (FirstName, LastName, Address, City, Email) VALUES
 ('Erik', 'Svensson', '123 Eken St', 'Göteborg', 'erik.svensson@example.com'),
 ('Anna', 'Johansson', '456 Ek St', 'Stockholm', 'anna.johansson@example.com'),
