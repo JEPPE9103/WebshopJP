@@ -1,4 +1,4 @@
--- 1. Vilka kunder har köpt svarta byxor i storlek 38 av märket Levis?
+-- 1. Vilka kunder har köpt svarta byxor i storlek 38 av märket Sweetpants?
 SELECT DISTINCT c.FirstName AS Förnamn, c.LastName AS Efternamn
 FROM Customers c
 JOIN Orders o ON c.CustomerID = o.CustomerID
