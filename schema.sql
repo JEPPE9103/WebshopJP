@@ -62,7 +62,7 @@ INSERT INTO Customers (FirstName, LastName, Address, City, Email) VALUES
 ('Elsa', 'Nilsson', '202 Almn St', 'Linköping', 'elsa.nilsson@example.com');
 
 INSERT INTO Products (Name, Size, Color, Price, Brand, Stock) VALUES
-('Svarta Byxor', '38', 'Svart', 299.99, 'Levi\'s', 50),
+('Svarta Byxor', '38', 'Svart', 299.99, 'Sweatpants', 50),
 ('Röd Skjorta', 'M', 'Röd', 199.99, 'Tommy Hilfiger', 75),
 ('Blå Jeans', '32', 'Blå', 399.99, 'Wrangler', 60),
 ('Grön Hatt', 'OneSize', 'Grön', 149.99, 'Gucci', 30),
