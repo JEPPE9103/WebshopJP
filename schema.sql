@@ -1,11 +1,8 @@
--- Ta bort databas om den finns
 DROP DATABASE IF EXISTS WebshopJP;
 
--- Skapa en ny databas
 CREATE DATABASE WebshopJP;
 USE WebshopJP;
 
--- Skapa tabeller
 CREATE TABLE Customers (
     CustomerID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(50),
