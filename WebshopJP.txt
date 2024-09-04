@@ -1,0 +1,25 @@
+Relationsmodell för WebshopJP
+
+1. Customers (CustomerID, FirstName, LastName, Address, City, Email)
+   - Primärnyckel: CustomerID
+
+2. Products (ProductID, Name, Size, Color, Price, Brand, Stock)
+   - Primärnyckel: ProductID
+
+3. Orders (OrderID, CustomerID, OrderDate)
+   - Primärnyckel: OrderID
+   - Främmande nyckel: CustomerID refererar till Customers(CustomerID)
+
+4. OrderDetails (OrderDetailID, OrderID, ProductID, Quantity)
+   - Primärnyckel: OrderDetailID
+   - Främmande nycklar: 
+     - OrderID refererar till Orders(OrderID)
+     - ProductID refererar till Products(ProductID)
+
+5. Categories (CategoryID, CategoryName)
+   - Primärnyckel: CategoryID
+
+6. ProductCategories (ProductID, CategoryID)
+   - Främmande nycklar:
+     - ProductID refererar till Products(ProductID)
+     - CategoryID refererar till Categories(CategoryID)
