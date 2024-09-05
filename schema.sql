@@ -52,11 +52,11 @@ CREATE TABLE ProductCategories (
 
 
 INSERT INTO Customers (FirstName, LastName, Address, City, Email) VALUES
-('Erik', 'Svensson', '123 Eken St', 'Göteborg', 'erik.svensson@example.com'),
-('Anna', 'Johansson', '456 Ek St', 'Stockholm', 'anna.johansson@example.com'),
-('Karin', 'Andersson', '789 Tall St', 'Malmö', 'karin.andersson@example.com'),
-('Oskar', 'Karlsson', '101 Björk St', 'Uppsala', 'oskar.karlsson@example.com'),
-('Elsa', 'Nilsson', '202 Almn St', 'Linköping', 'elsa.nilsson@example.com');
+('Erik', 'Svensson', 'Sveavägen 25','Göteborg', 'erik.svensson@example.com'),
+('Anna', 'Johansson', 'Turebergsgatan 376','Stockholm', 'anna.johansson@example.com'),
+('Jesper', 'Persson', 'Amorgränd 24','Stockholm', 'jespe9103@gmail.com'),
+('Oskar', 'Karlsson', 'Pellesvanslösgatan 14','Uppsala', 'oskar.karlsson@example.com'),
+('Elsa', 'Nilsson', 'Linköpingsvägen 324','Linköping', 'elsa.nilsson@example.com');
 
 INSERT INTO Products (Name, Size, Color, Price, Brand, Stock) VALUES
 ('Svarta Byxor', '38', 'Svart', 299.99, 'Sweetpants', 50),
